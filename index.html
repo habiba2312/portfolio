@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Habiba's Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #f1f1f1;
+      scroll-behavior: smooth;
+      transition: background 0.5s, color 0.5s;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(5px);
+    }
+    nav a {
+      color: #f1f1f1;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #00c6ff;
+    }
+    .mode-toggle {
+      margin-left: 20px;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 8px;
+      background: #00c6ff;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    .mode-toggle:hover {
+      background: #0091cc;
+    }
+    .title {
+      text-align: center;
+      padding: 3rem 0;
+      background-color: rgba(30, 30, 30, 0.8);
+      transition: background 0.5s;
+    }
+    .title h1 {
+      margin: 0;
+      font-size: 2.8rem;
+      color: #00c6ff;
+    }
+    .profile-pic {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #00c6ff;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 20px rgba(0, 198, 255, 0.6);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .profile-pic:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 25px rgba(0, 198, 255, 0.9);
+    }
+    section {
+      padding: 2rem;
+      max-width: 900px;
+      margin: 2rem auto;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      transition: background 0.5s;
+    }
+    h1, h2, h3 {
+      color: #00c6ff;
+    }
+    ul {
+      list-style: square;
+      padding-left: 20px;
+    }
+    form input {
+      padding: 10px;
+      margin: 8px 0;
+      width: 100%;
+      border: none;
+      border-radius: 8px;
+      outline: none;
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+    }
+    form input::placeholder {
+      color: #ddd;
+    }
+    form input[type="submit"] {
+      background-color: #00c6ff;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    form input[type="submit"]:hover {
+      background-color: #0091cc;
+    }
+    .social-links {
+      margin-top: 1rem;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    .social-links a {
+      color: #00c6ff;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-flex;
+      align-items: center;
+      transition: transform 0.3s ease;
+    }
+    .social-links a img {
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+    }
+    .social-links a:hover {
+      text-decoration: underline;
+      transform: translateY(-3px);
+    }
+
+    /* Light Mode */
+    body.light-mode {
+      background: #f8f9fa;
+      color: #222;
+    }
+    body.light-mode nav {
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+    body.light-mode nav a {
+      color: #222;
+    }
+    body.light-mode .title {
+      background: rgba(200,200,200,0.5);
+    }
+    body.light-mode section {
+      background: rgba(255,255,255,0.9);
+      color: #222;
+    }
+    body.light-mode h1, body.light-mode h2, body.light-mode h3 {
+      color: #0077b6;
+    }
+    body.light-mode .mode-toggle {
+      background: #0077b6;
+    }
+    body.light-mode .mode-toggle:hover {
+      background: #005f87;
+    }
+    body.light-mode .social-links a {
+      color: #0077b6;
+    }
+
+    /* Light Mode form inputs */
+    body.light-mode form input {
+      background: #ffffff;
+      border: 1px solid #ccc;
+      color: #222;
+    }
+    body.light-mode form input::placeholder {
+      color: #666;
+    }
+    body.light-mode form input[type="submit"] {
+      background: #0077b6;
+      color: #fff;
+    }
+    body.light-mode form input[type="submit"]:hover {
+      background: #005f87;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#about">About Me</a>
+    <a href="#education">Education</a>
+    <a href="#technical">Technical Skills</a>
+    <a href="#courses">Courses & Training</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+    <button class="mode-toggle" onclick="toggleMode()">🌙 Dark/☀️ Light</button>
+  </nav>
+
+  <div class="title">
+    <img src="./assets/d1558d51-e8f1-47b3-be60-bd4db3419423.jpeg" alt="Habiba Mohamed" class="profile-pic">
+    <h1>Habiba's Portfolio</h1>
+  </div>
+
+  <section id="about">
+    <h1>About Me</h1>
+    <p>I'm Habiba Mohamed, Passionate and dedicated Artificial Intelligence student with hands-on experience in machine learning, data analysis, and research. Skilled in developing and evaluating AI models using Python and key libraries. Currently pursuing a B.Sc. in Artificial Intelligence at the Egyptian Russian University, with a strong interest in real-world applications of AI in areas such as computer vision and natural language processing. Passionate about learning Flutter, Dart. Eager to join innovative AI-driven environments and contribute to impactful projects.</p>
+  </section>
+
+  <section id="education">
+    <h1>Education</h1>
+    <ul>
+      <li>Faculty: Artificial Intelligence, Egyptian Russian University</li>
+      <li>Level: four</li>
+    </ul>
+  </section>
+
+  <section id="technical">
+    <h2>Technical Skills</h2>
+    <ul>
+      <li>Programming: Python, C++, Java</li>
+      <li>Testing Tools: Selenium, Postman, Jira</li>
+      <li>Databases: MySQL</li>
+    </ul>
+  </section>
+
+  <section id="courses">
+    <h3>Courses & Training</h3>
+    <ul>
+      <li>Artificial Intelligence (Huawei)</li>
+      <li>Cyber Security (Academy of Scientific Research & Technology)</li>
+      <li>AI (Creativa)</li>
+      <li>Software Tester (DEPI)</li>
+      <li>Education for Employment (EFE)</li>
+    </ul>
+  </section>
+
+  <section id="projects">
+    <h3>Projects</h3>
+    <ul>
+      <li>Emotion Recognition using Text Data - Developed a model to detect emotions from text using a labeled dataset (GoEmotions) and applied logistic regression and SVM.</li>
+      <li>Gravity-Based Platformer Game (AI Features) - Designed a game in Pygame with gravity flip mechanics; added basic AI logic for enemy movements.</li>
+      <li>Pose Classification Project</li>
+      <li>OOP-Based Student Management System - Created a modular Python application with OOP principles to manage and analyze student data.</li>
+      <li>Emotion Detection (by camera)</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h3>Contact Me</h3>
+    <form>
+      <label for="name">Name:</label><br>
+      <input type="text" id="name" name="name" placeholder="Enter your name"><br>
+
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email" placeholder="Enter your email"><br>
+
+      <label for="subject">Subject:</label><br>
+      <input type="text" id="subject" name="subject" placeholder="Enter subject"><br>
+
+      <input type="submit" value="Send">
+    </form>
+    <div class="social-links">
+      <p>Connect with me:</p>
+      <a href="https://www.linkedin.com/in/habiba-mohamed-7175a5321" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn Icon">
+        LinkedIn
+      </a>
+      <a href="mailto:habibarezk2312@gmail.com">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email Icon">
+        Email
+      </a>
+    </div>
+  </section>
+
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle("light-mode");
+    }
+  </script>
+</body>
+</html>
